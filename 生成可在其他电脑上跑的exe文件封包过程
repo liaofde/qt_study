@@ -1,0 +1,13 @@
+1、打开qt工程，release执行
+
+2、进入build_***工程目录，把文件***.exe文件拷贝，比如MyRfiddoor.exe。
+
+3、创建新的文件夹，把MyRfiddoor..exe拷贝过去。
+
+4、打开Qt for Desktop，进入到上一步的目录，执行：windeployqt MyRfiddoor.exe
+
+5、打开enigmavb.exe(传送门)，在选择封包的主程中选择新文件夹中的MyRfiddoor.exe
+
+6、左下方增加文件，把所有的dll文件加进来，然后文件管理窗口把几个文件夹直接拉进来
+
+7、点击执行封装，如果还有错误提示少了dll,把这些dll拉进来，在执行封装。
