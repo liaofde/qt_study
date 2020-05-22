@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>611</width>
+    <height>599</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>611</width>
+    <height>599</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>611</width>
+    <height>599</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -18,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>20</y>
+      <y>10</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -31,7 +43,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>20</y>
+      <y>10</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -44,9 +56,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
-      <width>761</width>
-      <height>361</height>
+      <y>60</y>
+      <width>591</width>
+      <height>411</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -57,7 +69,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>20</y>
+      <y>10</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -70,7 +82,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>20</y>
+      <y>10</y>
       <width>21</width>
       <height>16</height>
      </rect>
@@ -83,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>20</y>
+      <y>10</y>
       <width>41</width>
       <height>16</height>
      </rect>
@@ -97,7 +109,7 @@
      <rect>
       <x>10</x>
       <y>500</y>
-      <width>581</width>
+      <width>511</width>
       <height>21</height>
      </rect>
     </property>
@@ -105,7 +117,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>530</x>
       <y>500</y>
       <width>75</width>
       <height>23</height>
@@ -141,13 +153,82 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>540</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>收：0字节, 发：0字节</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>530</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清除显示</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>611</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>数据收发窗口</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>480</y>
+      <width>611</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>数据发送窗口</string>
+    </property>
+   </widget>
+   <zorder>groupBox_2</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>lineEdit_2</zorder>
+   <zorder>textBrowser</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>lineEdit_3</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>pushButton_3</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>611</width>
      <height>23</height>
     </rect>
    </property>

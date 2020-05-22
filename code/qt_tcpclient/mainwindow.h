@@ -25,9 +25,13 @@ private slots:
     void receive();
     void on_pushButton_2_clicked();
     void stateChangedSloat(QAbstractSocket::SocketState SocketState);
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
 public:
     QTcpSocket *socket;
+    uint64_t rxcnt=0;
+    uint64_t txcnt=0;
 };
 #endif // MAINWINDOW_H

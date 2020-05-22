@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "QMessageBox"
+#include "QDateTime"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -71,7 +72,18 @@ void MainWindow::receive()
     if(msg.size())
     {
         qDebug()<<"ip"<<ip<<",port"<<port<<"rec"<<msg;
-        ui->textBrowser->append(msg);
+        //ui->textBrowser->append(msg);
+        this->rxcnt+=msg.size();
+        ui->label_5->setText(QString("收：%1字节, 发：%2字节").arg(this->rxcnt).arg(this->txcnt));
+
+        QString disp;
+        QDateTime tim;
+
+        tim = QDateTime::currentDateTime();
+        disp = tim.toString("hh:mm:ss");
+        disp += "接收数据：";
+        disp += msg;
+        ui->textBrowser->append(disp);
     }
 
 }
@@ -84,7 +96,19 @@ void MainWindow::on_pushButton_2_clicked()
 
     if(a.size())
     {
+        QString disp;
+        QDateTime tim;
+
+        tim = QDateTime::currentDateTime();
+        disp = tim.toString("hh:mm:ss");
+        disp += "发送数据：";
+        disp += a;
+        ui->textBrowser->append(disp);
+
         socket->write(a.toLatin1());
+
+        this->txcnt+=a.size();
+        ui->label_5->setText(QString("收：%1字节, 发：%2字节").arg(this->rxcnt).arg(this->txcnt));
     }
 }
 /*
@@ -121,4 +145,12 @@ void MainWindow::stateChangedSloat(QAbstractSocket::SocketState p)
     {
         ui->label_4->setText("Connecting");
     }
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->textBrowser->clear();
+    this->rxcnt = 0;
+    this->txcnt = 0;
+    ui->label_5->setText(QString("收：%1字节, 发：%2字节").arg(this->rxcnt).arg(this->txcnt));
 }
