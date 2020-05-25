@@ -33,7 +33,7 @@ void MainWindow::on_pushButton_clicked()
     if(str.size()>0)
     {
         model->insertRows(model->rowCount(),1);
-        QModelIndex index= model->sibling(this->row,0,index);
+        QModelIndex index= model->index(this->row,0);
         model->setData(index,ui->lineEdit->text());
     }
     else
@@ -66,8 +66,9 @@ void MainWindow::on_pushButton_3_clicked()
 
     if(str.size()>0)
     {
-        model->insertRows(this->row,1);
-        model->setData(this->index,str);
+        QModelIndex index=ui->listView->currentIndex();
+        model->insertRows(index.row(),1);
+        model->setData(index,str);
     }
     else
     {
