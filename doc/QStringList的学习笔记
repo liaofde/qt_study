@@ -1,0 +1,109 @@
+QStringList 初始化
+
+  QStringList qstrList;
+  qstrList<<"Android" << "Qt Creator" << "Java" << "C++";
+  QStringListIterator strIterator(qstrList);
+  while (strIterator.hasNext())
+        qDebug() << strIterator.next() << endl;
+12345
+
+这里我们用QStringList添加QString字符串，用   <<来添加字符串，相当于Java中List的add()方法.
+
+
+
+我们先学习一下QList的方法
+
+1.增加字符串 append()  
+            QStringList可以通过append()，或使用<< 来添加List元素，如
+
+qstrList.append("python");
+qstrList << "PHP" ;
+12
+
+2.插入字符串 insert() 
+    插入字符串insert方法可以将字符串插入到我们指定的list的位置：
+
+qstrList.insert(0,"C#");
+1
+
+第一个参数为我们要插入的位置，后面的参数表示我们要插入的值。 
+3.替换字符串 replace()  
+通过replace()方法我们可以替换掉list中某一位置的值
+
+qstrList.replace(0,"Web");
+1
+
+第一个参数为我们要替换的位置，后面的参数表示我们要替换的值。 
+4.删除字符串 removeAt(), removeFirst(), removeLast(), and removeOne()  
+我们可以根据方法名，推断出个方法的具体作用，根据实际需要选着对应的方法： 
+这里说一下removeOne()方法，他表示删除一个具体的值，参数为我们list里的内容，其定义是： 
+bool  removeOne(const T &value) ，返回值为bool类型，我们写一下用法的例子
+
+bool isflag = qstrList.removeOne("C#");//删除一个指定的元素，删除成功返回true，删除失败返回fasle
+qDebug() << isflag << endl;
+int n = qstrList.removeAll("Java");//删除所有的指定的元素，返回删除的元素个数
+qDebug() << n << endl;
+qstrList.removeAt(2);//删除第三个元素
+qstrList.removeFirst();//删除第一个元素
+qstrList.removeLast();//删除最后一个元素
+1234567
+
+接下来我们学习一下QStringList的方法
+
+1. 合并字符串使用join( )
+
+QString str = fonts.join(",");
+// str == "Android,Qt Creator,Java,C++"
+12
+
+2. 拆分字符串
+
+QString str = "Android,Qt Creator, ,Java,C++";
+QStringList list1 = str.split(",");
+// list1: [ "Android", "Qt Creator"," ", "Java", "C++" ]
+QStringList list2 = str.split(",", QString::SkipEmptyParts);
+// list2:[ "Android", "Qt Creator", "Java", "C++" ]
+12345
+
+也就是说如果有QString：：SkipEmptyParts，空项不会出现在结果。默认情况下，空项被保留 
+3. 索引 
+IndexOf（）函数返回给定字符串的第一个出现的索引。 
+而lastIndexOf（）函数，返回字符串的最后一次出现的索引。
+
+QStringList qstrList;
+ qstrList<<"Java" << "Android" << "Qt Creator" << "Java" << "C++";
+int index = qstrList.indexOf("Java");//返回 0
+int index = qstrList.indexOf("Java");//返回 3
+1234
+
+4. 替换replaceInStrings（）
+
+QStringList files;
+files << "$file/src/moc/moc.y" <<  "$file/src/moc/moc.l" <<  "$file/include/qconfig.h";
+files.replaceInStrings("$file", "/usr/file");
+// files: [ "/usr/file/src/moc/moc.y", ...]
+1234
+
+5. 过滤filter（） 
+可以让你提取一个新的列表只包含这些字符串包含一个特定的字符串（或匹配特定正则表达式）：
+
+QStringList list;
+list << "Bill Murray" << "John Doe" << "Bill Clinton";
+QStringList result;
+result = list.filter("Bill");
+// result: ["Bill Murray", "Bill Clinton"]
+
+//比较字符串的时候 
+//Qt::CaseSensitive  搜索区分大小写
+//Qt::CaseInSensitive   不区分大小写
+result = list.filter("bill",Qt::CaseInSensitive);
+// result: ["Bill Murray", "Bill Clinton"]
+1234567891011
+
+
+总结：
+
+QStringList类提供字符串列表。 
+QStringList继承自QList < QString >。与QList一样，QStringList是隐式共享的。它提供了快速的基于索引的访问，以及快速插入和删除。将字符串列表作为值参数传递是快速和安全的。 
+QList的所有功能也适用于QStringList。例如，您可以使用isEmpty（）来测试列表是否为空，您可以调用诸如append（）、prepend（）、insert（）、replace（）、removeAll（）、removeAt（）、removeFirst（）和removeOne（）来修改QStringList的函数。 
+此外，QStringList提供了一些方便的函数，使字符串的处理列表变得更容易
