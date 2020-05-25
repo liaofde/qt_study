@@ -5,7 +5,10 @@ QStringList 初始化
   QStringListIterator strIterator(qstrList);
   while (strIterator.hasNext())
         qDebug() << strIterator.next() << endl;
-12345
+ 
+  while (i<qlist.size())
+     qDebug() << qlist.at(i++) << endl;
+
 
 这里我们用QStringList添加QString字符串，用   <<来添加字符串，相当于Java中List的add()方法.
 
