@@ -7,6 +7,8 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 
+#define xUSE_SIGNAL
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -27,5 +29,12 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
+
+#ifdef USE_SIGNAL
+signals:
+    void insert_signal(QList<QStandardItem *>);
+public slots:
+    void insert_slot(QList<QStandardItem *>);
+#endif
 };
 #endif // MAINWINDOW_H

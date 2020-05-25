@@ -18,6 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
     lst.append(new QStandardItem("965"));
     lst.append(new QStandardItem("19"));
     modle->appendRow(lst);
+
+#ifdef USE_SIGNAL
+    connect(this, SIGNAL(insert_signal(QList<QStandardItem *>)),this,SLOT(insert_slot(QList<QStandardItem *>)));
+#endif
 }
 
 MainWindow::~MainWindow()
@@ -45,6 +49,16 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+#ifdef USE_SIGNAL
+    QList<QStandardItem *> lst;
+
+    lst.append(new QStandardItem(ui->lineEdit->text()));
+    lst.append(new QStandardItem(ui->lineEdit_2->text()));
+    lst.append(new QStandardItem(ui->lineEdit_3->text()));
+
+    emit insert_signal(lst);
+
+#else
     QModelIndex index;
     QList<QStandardItem *> lst;
 
@@ -54,5 +68,15 @@ void MainWindow::on_pushButton_3_clicked()
 
     index = ui->tableView->currentIndex();
     modle->insertRow(index.row(),lst);
+#endif
 
 }
+
+#ifdef USE_SIGNAL
+void MainWindow::insert_slot(QList<QStandardItem *> lst)
+{
+     QModelIndex index;
+     index = ui->tableView->currentIndex();
+     modle->insertRow(index.row(),lst);
+}
+#endif
