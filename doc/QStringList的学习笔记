@@ -2,6 +2,7 @@ QStringList 初始化
 
   QStringList qstrList;
   qstrList<<"Android" << "Qt Creator" << "Java" << "C++";
+遍历
   QStringListIterator strIterator(qstrList);
   while (strIterator.hasNext())
         qDebug() << strIterator.next() << endl;
