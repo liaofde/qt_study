@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete modle;
 }
 
 
@@ -55,9 +56,7 @@ void MainWindow::on_pushButton_3_clicked()
     lst.append(new QStandardItem(ui->lineEdit->text()));
     lst.append(new QStandardItem(ui->lineEdit_2->text()));
     lst.append(new QStandardItem(ui->lineEdit_3->text()));
-
     emit insert_signal(lst);
-
 #else
     QModelIndex index;
     QList<QStandardItem *> lst;

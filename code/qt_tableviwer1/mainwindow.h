@@ -7,7 +7,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 
-#define xUSE_SIGNAL
+#define USE_SIGNAL
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
