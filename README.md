@@ -1,6 +1,6 @@
 # qt_study  
  
-##开发环境  
+## 开发环境  
 
 IDE:QT Creator 4.11.1  
 Qt5.14.2  
@@ -8,7 +8,7 @@ Qt5.14.2
 
 
   
-##学习资源 
+## 学习资源 
 
 qt学习网站：  
 (1)[http://c.biancheng.net/qt/](#)   
