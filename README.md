@@ -1,8 +1,18 @@
-# qt_study  
+# QT学习  
+ 
+## 开发环境
 
 IDE:QT Creator 4.11.1  
 Qt5.14.2  
-qt学习网站  
-```  
-    http://c.biancheng.net/qt/  
-```  
+下载地址: [https://download.qt.io/archive/qt/](https://download.qt.io/archive/qt/)  
+
+
+  
+## 学习资源
+
+QT学习网站：  
+(1)Qt5编程入门教程  
+  [http://c.biancheng.net/qt/](http://c.biancheng.net/qt/)   
+(2)Qt之JSON生成与解析  
+  [https://blog.csdn.net/weixin_34104341/article/details/90526954?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-12.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-12.nonecase](https://blog.csdn.net/weixin_34104341/article/details/90526954?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-12.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-12.nonecase)  
+
