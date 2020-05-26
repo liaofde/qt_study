@@ -1,4 +1,4 @@
-# qt_study  
+# QT学习  
  
 ## 开发环境
 
@@ -10,7 +10,7 @@ Qt5.14.2
   
 ## 学习资源
 
-qt学习网站：  
+QT学习网站：  
 (1)Qt5编程入门教程  
   [http://c.biancheng.net/qt/](http://c.biancheng.net/qt/)   
 (2)Qt之JSON生成与解析  
