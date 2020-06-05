@@ -6,7 +6,7 @@ IDE:QT Creator 4.11.1
 Qt5.14.2  
 下载地址: [https://download.qt.io/archive/qt/](https://download.qt.io/archive/qt/)  
 
-
+Nancy520qq
   
 ## 学习资源
 
