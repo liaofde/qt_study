@@ -175,7 +175,10 @@ void MainWindow::on_pushButton_5_clicked()
     if(file.size()<5)
         return;
     if((i=ui->tableView->currentIndex().row())<0)
+    {
+        QMessageBox::information(NULL, "提示", "请选择要升级的设备");
          return;
+    }
     if(i>=ip_list->size())
         return;
     ui->pushButton_5->setEnabled(false);

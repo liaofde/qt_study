@@ -26,13 +26,22 @@ void update_thread::run()
             emit subdisp_signal(msg);
 
             caller->start("update.exe",update_msg);//启动程序并传入参数
-            //caller->start("ping.exe",QStringList()<<"192.168.0.124");//启动程序并传入参数
-            caller->waitForStarted();
+            caller->start("ping.exe",QStringList()<<"192.168.0.124");//启动程序并传入参数
+            if(caller->waitForStarted(3000)==false)
+            {
+                msg.clear();
+                msg<<"错误!找不到update.exe升级程序\n"<<"错误";
+                emit subdisp_signal(msg);
+                emit button_enable_signal();
+                update_msg.clear();
+                return;
+            }
 
         #if 0
             caller->waitForFinished();
         #else
-            while(false == caller->waitForFinished(50))
+            int tv=0;
+            while(false == caller->waitForFinished(1000))
             {
                 QString strTemp=QString::fromLocal8Bit(caller->readAllStandardOutput());
                 if(!strTemp.isEmpty())
@@ -43,6 +52,18 @@ void update_thread::run()
                     qDebug()<<strTemp;
                 }
                 QApplication::processEvents();
+                tv++;
+                if(tv>20)
+                {
+                    caller->kill();
+                    msg.clear();
+                    msg<<"升级超时，退出升级\n"<<"提示";
+                    emit subdisp_signal(msg);
+                    emit button_enable_signal();
+                    update_msg.clear();
+                    return;
+                }
+
             }
         #endif
             QString strTemp=QString::fromLocal8Bit(caller->readAllStandardOutput());
