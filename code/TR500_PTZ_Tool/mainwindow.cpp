@@ -3,6 +3,7 @@
 #include "QFileDialog"
 #include "QProcess"
 #include "QMessageBox"
+#include "QUdpSocket"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QStringList headlist;
 
-    headlist<<"名称"<<"ip址址"<<"子网掩码"<<"网关"<<"MAC址址";
+    headlist<<"名称"<<"ip地址"<<"子网掩码"<<"网关"<<"MAC地址";
     modle = new QStandardItemModel(0,5);
     modle->setHorizontalHeaderLabels(headlist);
     ui->tableView->setModel(modle);
@@ -67,9 +68,15 @@ void MainWindow::button_enable_slot()
 
 void MainWindow::on_pushButton_1_clicked()
 {
-    QString ip="255.255.255.255";
+    QString ip= ui->lineEdit_2->text();
     QString cmd="search";
 
+    QHostAddress host;
+    if(host.setAddress(ip)==false)
+    {
+        QMessageBox::information(NULL, "错误", "ip地址输入错误!");
+        return;;
+    }
     ip_list->clear();
     modle->removeRows(0,modle->rowCount());
 
@@ -82,7 +89,6 @@ void MainWindow::on_pushButton_1_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QString isBroadcast;
     QString ip;
     QString cmd="reboot";
 
