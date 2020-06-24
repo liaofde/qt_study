@@ -7,7 +7,7 @@ m_udpcomm::m_udpcomm(QWidget *p)
     :QWidget(p)
 {
     this->socket = new QUdpSocket(this);
-    this->socket->bind(10000);
+    //this->socket->bind(10000);
     connect(this->socket, SIGNAL(readyRead()), this, SLOT(receive_slot()), Qt::DirectConnection);
 
 }
