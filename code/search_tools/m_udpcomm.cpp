@@ -123,10 +123,12 @@ void m_udpcomm::push_button_slot(QStringList *info)
     else if(QString::compare(cmd,"net_config")==0)
     {
         rootObj.insert("cmd", "net_config");
-        rootObj.insert("ip", info->at(2));
-        rootObj.insert("mask", info->at(3));
-        rootObj.insert("gw", info->at(4));
-        rootObj.insert("mac", info->at(5));
+        rootObj.insert("dhcp", info->at(2));
+        rootObj.insert("dev", info->at(3));
+        rootObj.insert("ip", info->at(4));
+        rootObj.insert("mask", info->at(5));
+        rootObj.insert("gw", info->at(6));
+        rootObj.insert("mac", info->at(7));
         res = 0;
     }
     if(res==0)

@@ -15,16 +15,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     QStringList headlist;
 
-    headlist<<"名称"<<"ip地址"<<"子网掩码"<<"网关"<<"MAC地址";
-    modle = new QStandardItemModel(0,5);
+    headlist<<"名称"<<"DHCP"<<"ip地址"<<"子网掩码"<<"网关"<<"MAC地址";
+    modle = new QStandardItemModel(0,6);
     modle->setHorizontalHeaderLabels(headlist);
     ui->tableView->setModel(modle);
 
     ui->tableView->setColumnWidth(0,120);
-    ui->tableView->setColumnWidth(1,100);
+    ui->tableView->setColumnWidth(1,80);
     ui->tableView->setColumnWidth(2,100);
     ui->tableView->setColumnWidth(3,100);
-    ui->tableView->setColumnWidth(4,140);
+    ui->tableView->setColumnWidth(4,100);
+    ui->tableView->setColumnWidth(5,180);
 }
 
 MainWindow::~MainWindow()
@@ -125,10 +126,12 @@ void MainWindow::on_pushButton_2_clicked()
 
     info->append(ip);
     info->append(cmd);
+    info->append(modle->item(i,0)->text());
     info->append(modle->item(i,1)->text());
     info->append(modle->item(i,2)->text());
     info->append(modle->item(i,3)->text());
     info->append(modle->item(i,4)->text());
+    info->append(modle->item(i,5)->text());
 
     emit push_button_signal(info);
     delete info;

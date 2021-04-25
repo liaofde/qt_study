@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    w.setWindowTitle("yt_tr500_ptz_tool");
+    w.setWindowTitle("search tools");
 
     m_udpcomm mudp;
     update_thread m_update_thread;
